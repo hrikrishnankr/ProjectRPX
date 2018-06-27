@@ -1,4 +1,4 @@
-# PROJECT Ped Pixels
+# PROJECT Red Pixels
 
 Automated Blood donation application.
 
