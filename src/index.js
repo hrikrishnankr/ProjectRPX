@@ -1,12 +1,9 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Root from './app';
+import store, { history } from './store.js';
 
-import Loader from './components/Loader';
-
-const Index = () => {
-  return <div>
-  	<Loader></Loader>
-  </div>;
-};
-
-ReactDOM.render(<Index />, document.getElementById("index"));
+ReactDOM.render(
+    <Root store={store} history={history} />, 
+    document.getElementById('index')
+);

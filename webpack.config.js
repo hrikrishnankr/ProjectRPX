@@ -7,7 +7,7 @@ const htmlWebpackPlugin = new HtmlWebPackPlugin({
 
 module.exports = {
     resolve: {
-      extensions: ['.js', '.jsx', '.json', '*']
+        extensions: ['.js', '.jsx', '.json', '*']
     },
     module: {
         rules: [{
@@ -18,19 +18,15 @@ module.exports = {
                 }
             },
             {
-                test: /\.css$/,
+                test: /\.scss$/,
                 use: [{
-                        loader: "style-loader"
+                        loader: "style-loader" // creates style nodes from JS strings
                     },
                     {
-                        loader: "css-loader",
-                        options: {
-                            modules: true,
-                            importLoaders: 1,
-                            localIdentName: "[name]_[local]_[hash:base64]",
-                            sourceMap: true,
-                            minimize: true
-                        }
+                        loader: "css-loader" // translates CSS into CommonJS
+                    },
+                    {
+                        loader: "sass-loader" // compiles Sass to CSS
                     }
                 ]
             }
@@ -38,7 +34,6 @@ module.exports = {
     },
     plugins: [htmlWebpackPlugin],
     devServer: {
-        hot: true,
         inline: true,
         host: "localhost",
         historyApiFallback: true,
